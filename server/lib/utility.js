@@ -21,3 +21,12 @@ exports.isValidUrl = function(url) {
 // Add additional utility functions below
 /************************************************************/
 
+exports.encryptPassword = function (password) {
+  var secret = 'abcdefg';
+  var hash = crypto.createHmac('sha256', secret)
+                   .update(password)
+                   .digest('hex');
+  return hash;
+
+
+};

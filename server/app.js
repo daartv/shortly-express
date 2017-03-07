@@ -91,20 +91,17 @@ function(req, res, next) {
 
 
 app.post('/signup', function (req, res, next) {
-  console.log('Hi there!!', req.body);
-
-  res.sendStatus(201);
+  res.statusCode = 201;
   var entry = req.body;
+  console.log('BODY ------', req.body);
   Users.POST(entry, function (err, results) {
     console.log('inside post signup');
     if (err) { 
       console.log(err);
-      res.send(); 
     } else {
       //do something;
       res.send();
     }
-    // callback(results);
   });
 }); 
 

@@ -4,11 +4,8 @@ var utils = require('../lib/utility');
 // Write you user database model methods here
 
 module.exports = {
-  // signup = {
-
-  // }
   POST: function (params, callback) {
-    console.log( "I want to know!!! ====>", params, callback);
+    params.password = utils.encryptPassword(params.password);
     var queryStr = 'INSERT IGNORE INTO users SET ?';
     db.query(queryStr, params, function (err, results) {
       if (err) {
