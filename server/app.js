@@ -93,16 +93,18 @@ function(req, res, next) {
 app.post('/signup', function (req, res, next) {
   res.statusCode = 201;
   var entry = req.body;
-  console.log('BODY ------', req.body);
-  Users.POST(entry, function (err, results) {
-    console.log('inside post signup');
+  // console.log('BODY ------', req.body);
+  Users.POST(entry, res, function (err, results) {
+    // console.log('inside post signup');
     if (err) { 
-      console.log(err);
+      console.log('IT ERRORS OUT FROM APP');
+      // res.redirect(301, '/signup');
     } else {
       //do something;
       res.send();
     }
   });
+  
 }); 
 
 

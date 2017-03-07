@@ -99,7 +99,6 @@ describe('', function() {
 
         var sameUser = newUser;
         db.query('INSERT INTO users SET ?', sameUser, function(err) {
-          console.log('(((((((((((((((((________err',err);
           expect(err).to.exist;
           expect(err.code).to.equal('ER_DUP_ENTRY');
           done();
@@ -212,7 +211,7 @@ describe('', function() {
     });
   });
 
-  xdescribe('Account Login:', function() {
+  describe('Account Login:', function() {
 
     beforeEach(function(done) {
       var options = {

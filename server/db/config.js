@@ -26,9 +26,10 @@ module.exports = function(db) {
   .then(function() {
     return db.queryAsync('CREATE TABLE IF NOT EXISTS users (\
       id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,\
-      username VARCHAR(16) NOT NULL UNIQUE,\
-      password VARCHAR(40) NOT NULL,\
-      timestamp TIMESTAMP\
+      username VARCHAR(200) NOT NULL,\
+      password VARCHAR(200) NOT NULL,\
+      timestamp TIMESTAMP,\
+      UNIQUE INDEX(username)\
       );');
   })
   /************************************************************/
