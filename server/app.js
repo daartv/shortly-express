@@ -85,7 +85,28 @@ function(req, res, next) {
 /************************************************************/
 // Write your authentication routes here
 /************************************************************/
+// app.get('/signup', function (req, res) {
+//   res.render('signup');
+// });
 
+
+app.post('/signup', function (req, res, next) {
+  console.log('Hi there!!', req.body);
+
+  res.sendStatus(201);
+  var entry = req.body;
+  Users.POST(entry, function (err, results) {
+    console.log('inside post signup');
+    if (err) { 
+      console.log(err);
+      res.send(); 
+    } else {
+      //do something;
+      res.send();
+    }
+    // callback(results);
+  });
+}); 
 
 
 /************************************************************/
